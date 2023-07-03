@@ -64,7 +64,7 @@ mysqli_close($conn);
 							<p class="text-center"><?php echo $email; ?></hp>
 						</div>
 						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-							<a class="nav-link" id="account-tab" href="dashboard1.php">
+							<a class="nav-link" id="account-tab" href="dashboard.php">
 								<i class="fa fa-home text-center mr-1"></i>
 								Account
 							</a>
