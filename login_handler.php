@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (mysqli_num_rows($result) > 0) {
 			// User has been authenticated, redirect to dashboard page
 			$_SESSION['email'] = $email;
-			header("Location: user/dashboard1.php");
+			header("Location: user/dashboard.php");
 			// echo "<p>Welcome.</p>";
 			exit();
 		} else {
