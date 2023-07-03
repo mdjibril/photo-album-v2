@@ -7,7 +7,7 @@ CREATE TABLE user (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   fullname VARCHAR(255) NOT NULL,
-  age DATE NOT NULL,
+  date_of_birth DATE NOT NULL,
   image VARCHAR(255) NOT NULL,
   regno VARCHAR(255) NOT NULL,
   phone VARCHAR(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE user (
   department VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   status ENUM('Single', 'Married', 'Divorce', 'Prefer not to say') NOT NULL,
-  is_complete
+  is_active BOOLEAN DEFAULT 0 NOT NULL,  
   UNIQUE(regno, phone, email)
 );
 
