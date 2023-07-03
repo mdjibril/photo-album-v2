@@ -75,7 +75,7 @@ $result = mysqli_query($conn, $sql);
 	<?php while ($row = mysqli_fetch_array($result)){ 
 		$i++;
 		$fullname = $row["fullname"];
-		$age = $row["age"];
+		$age = $row["date_of_birth"];
 		$image = $row["image"];
 		$regno = $row["regno"];
 		$phone = $row["phone"];
