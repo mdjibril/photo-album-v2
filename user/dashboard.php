@@ -73,7 +73,7 @@ mysqli_close($conn);
 								Album
 							</a>
 							<a class="nav-link" id="password-tab" href="announcement.php">
-								<i class="fa fa-image text-center mr-1"></i>
+								<i class="fa fa-info text-center mr-1"></i>
 								Announcement
 							</a>
 							<a class="nav-link" id="password-tab" href="script/logout.php">
