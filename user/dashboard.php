@@ -72,6 +72,10 @@ mysqli_close($conn);
 								<i class="fa fa-image text-center mr-1"></i>
 								Album
 							</a>
+							<a class="nav-link" id="password-tab" href="announcement.php">
+								<i class="fa fa-image text-center mr-1"></i>
+								Announcement
+							</a>
 							<a class="nav-link" id="password-tab" href="script/logout.php">
 								<i class="fa fa-sign-out text-center mr-1"></i>
 								Logout
