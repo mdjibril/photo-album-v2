@@ -1,3 +1,7 @@
+<?php
+    require '../connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -177,22 +181,77 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Edit student</h1>
                         </div>
-                        <form class="user" method="POST" action="script/addstudentscript.php" enctype="multipart/form-data">
+                        <?php 
+                            if (isset($_GET['ids'])):
+                                $userId = $_GET['ids'];
+                                echo "<script>alert('we de here')</script>";
+
+                                $query = "SELECT * FROM `user` WHERE `id` = $userId";
+                                
+                                $userRecord = mysqli_query($conn, $query);
+                                
+                                while ($data = mysqli_fetch_array(($userRecord))):
+                                    $email = $data['email'];
+                                    $fullname = $data['fullname'];
+                                    $date_of_birth = $data['date_of_birth'];
+                                    $image = $data['image'];
+                                    $regno = $data['regno'];
+                                    $phone = $data['phone'];
+                                    $gender = $data['gender'];
+                                    $nickname = $data['nickname'];
+                                    $department = $data['department'];
+                                    $address = $data['address'];
+                                    $status = $data['status'];
+                        ?>
+                        <form class="user" method="POST" action="script/editstudentscript.php" enctype="multipart/form-data">
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Enter Email Address...">
+                                <input type="email" name="email" class="form-control" value="<?php echo $email ?>" placeholder="Enter Email Address...">
                             </div>
                             
                             <div class="form-group">
-                                <input type="text" name="regno" class="form-control" placeholder="Enter Reg No...">
+                                <input type="text" name="fullname" class="form-control" value="<?php echo $fullname ?>" placeholder="Enter fullname...">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="password" class="form-control" placeholder="Enter Password...">
+                                <input type="date" name="age" class="form-control" value="<?php echo $date_of_birth ?>" placeholder="Enter date of birth...">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="confirm_password" class="form-control" placeholder="Confirm Password...">
+                                <input type="file" name="image" class="form-control" placeholder="Profile...">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="regno" class="form-control" value="<?php echo $regno ?>" placeholder="Enter regno...">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="phone" class="form-control" value="<?php echo $phone ?>" placeholder="Enter phone number...">
+                            </div>
+                            <div class="form-group">
+                                <select name="gender" id="" class="form-control">
+                                    <option value="Male" <?php if ($gender == "Male") echo "selected"; ?>>Male</option>
+                                    <option value="Female" <?php if ($gender == "Female") echo "selected"; ?>>Female</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="nickname" class="form-control" value="<?php echo $nickname ?>" placeholder="Enter nickname...">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="department" class="form-control" value="<?php echo $department ?>" placeholder="Enter department...">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="address" class="form-control" value="<?php echo $address ?>" placeholder="Enter address...">
+                            </div>
+                            <div class="form-group">
+                            <select name="status" id="" class="form-control">
+                                <option value="Single" <?php if ($status == "Single") echo "selected"; ?>>Single</option>
+								<option value="Married" <?php if ($status == "Married") echo "selected"; ?>>Married</option>
+								<option value="Divorce" <?php if ($status == "Divorce") echo "selected"; ?>>Divorce</option>
+								<option value="Prefer not to say" <?php if ($status == "Prefer not to say") echo "selected"; ?>>Prefer not to say</option>
+                                </select>
                             </div>
                             <input class="btn btn-primary btn-user btn-block" type="submit" name="submit" value="Update Record">
                         </form>
+                        <?php 
+                                endwhile;
+                                endif; 
+                        ?>
                     </div>
 
                 </div>
