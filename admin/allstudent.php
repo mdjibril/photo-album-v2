@@ -235,6 +235,7 @@
                                             $age = $row['date_of_birth'];
                                             $status = $row['status'];
                                             $address = $row['address'];
+                                            $is_active = $row['is_active'];
                                         ?>
                                         <tr>
                                             <td><?php echo $i ?></td>
@@ -249,9 +250,14 @@
                                             <td>
                                                 <?php 
                                                     echo "
-                                                    <a href='editstudent.php?ids=$id'>Edit |</a>
-                                                    <a href='script/deletestudentscript.php?ids=$id'> Delete</a>
+                                                    <a href='editstudent.php?ids=$id'>Edit ||</a>
+                                                    <a href='script/deletestudentscript.php?ids=$id'> Delete</a> ||
                                                     ";
+                                                    if($is_active == '1'){
+                                                        echo "<a href='script/activatestudentscript.php?ids=$id&isactive=$is_active'> Deactivate</a>";
+                                                    }else {
+                                                        echo "<a href='script/activatestudentscript.php?ids=$id&isactive=$is_active'> Activate</a>";
+                                                    }
                                                 ?>
                                             </td>
                                         </tr>
