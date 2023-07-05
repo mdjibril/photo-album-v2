@@ -184,7 +184,7 @@
                         <?php 
                             if (isset($_GET['ids'])):
                                 $userId = $_GET['ids'];
-                                echo "<script>alert('we de here')</script>";
+                                // echo "<script>alert('we de here')</script>";
 
                                 $query = "SELECT * FROM `user` WHERE `id` = $userId";
                                 
@@ -204,9 +204,9 @@
                                     $status = $data['status'];
                         ?>
                         <form class="user" method="POST" action="script/editstudentscript.php" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" value="<?php echo $email ?>" placeholder="Enter Email Address...">
-                            </div>
+                            <!-- <div class="form-group"> -->
+                                <input type="hidden" name="email" class="form-control" value="<?php echo $email ?>" placeholder="Enter Email Address...">
+                            <!-- </div> -->
                             
                             <div class="form-group">
                                 <input type="text" name="fullname" class="form-control" value="<?php echo $fullname ?>" placeholder="Enter fullname...">

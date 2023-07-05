@@ -5,7 +5,7 @@ require '../connection.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION["email"])) {
-	header("Location: login.php");
+	header("Location: ../index.php");
 	exit();
 }
 

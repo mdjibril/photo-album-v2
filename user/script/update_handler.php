@@ -76,7 +76,7 @@ if ($image != "") {
 	if (mysqli_query($conn, $sql)) {
 		// Record updated successfully, redirect to dashboard
 		$_SESSION['message8'] = 'Record updated successfully';
-		header("Location: ../dashboard1.php");
+		header("Location: ../dashboard.php");
 		exit();
 	} else {
 		// Error updating record, show error message
