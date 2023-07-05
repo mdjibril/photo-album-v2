@@ -23,7 +23,7 @@ if (!$conn) {
 // Get the user's record from the database
 // $email = $_SESSION["email"];
 $i = 0;
-$sql = "SELECT * FROM `user` WHERE `image` IS NOT NULL";
+$sql = "SELECT * FROM `user` WHERE `image` IS NOT NULL AND `is_active` = 1";
 $result = mysqli_query($conn, $sql);
 
 // if (mysqli_num_rows($result) > 0) {
