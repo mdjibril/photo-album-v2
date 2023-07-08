@@ -3,19 +3,16 @@
 session_start();
 require 'connection.php';
 // Check if the user is logged in
-if (!isset($_SESSION["email"])) {
-	header("Location: ../index.php");
-	exit();
-}
-
+// if (!isset($_SESSION["email"])) {
+// 	header("Location: ../index.php");
+// 	exit();
+// }
 // Connect to the database
 $servername = "localhost";
 $username = "root";
 $password_db = "";
 $dbname = "album";
-
 $conn = mysqli_connect($servername, $username, $password_db, $dbname);
-
 if (!$conn) {
 	die("Connection failed: " . mysqli_connect_error());
 }
@@ -25,8 +22,6 @@ if (!$conn) {
 $i = 0;
 $sql = "SELECT * FROM `user` WHERE `image` IS NOT NULL AND `is_active` = 1";
 $result = mysqli_query($conn, $sql);
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,9 +31,9 @@ $result = mysqli_query($conn, $sql);
 	<title>ALBUM PAGE</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style>
-		header {
+		.top {
 			display: flex;
-			justify-content: center;
+			justify-content: space-evenly;
 			align-items: center;
 			width: 100%;
 			height: 50px;
@@ -47,11 +42,54 @@ $result = mysqli_query($conn, $sql);
 			background-color: #4caf50;
 			text-align: center;
 		}
+
+		.back {
+			text-decoration: none;
+			color: #f9f9f9;
+
+		}
+
+		@media only screen and (max-width: 600px) {
+			.top {
+				flex-direction: column;
+				height: 60px;
+			}
+			h1 {
+				font-size: 25px;
+			}
+			.back {
+				font-size: 20px;
+			}
+
+			.flexray {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: nowrap;
+			}
+
+			.card {
+				height: 350px;
+				width: 300px;
+			}
+
+			.card-side {
+				height: 350px;
+			}
+		}
 	</style>
 </head>
 <body>
-	<header>
+	<header class="top">	
 		<h1>CLASS OF 2015</h1>
+		<?php
+		if (isset($_SESSION["email"])) {
+			echo "<h1><a href='user/dashboard.php' class='back'>Back to Dashboard</a></h1>";
+		}else{
+			echo "<h1><a href='index.php' class='back'>Back to Login</a></h1>";
+		} 
+		?>
 	</header>
 	<main class="flexray">
 	<?php while ($row = mysqli_fetch_array($result)){ 
