@@ -67,6 +67,11 @@ $result = mysqli_query($conn, $sql);
 		$address = $row["address"];
 		$status = $row["status"];
 
+		$timestamp = strtotime($age);
+
+		$month = date("F", $timestamp); // Extracts the month as a two-digit number (01-12)
+		$day = date("d", $timestamp);   // Extracts the day as a two-digit number (01-31)
+
 		?>
 		<div class="card">
 		  <div class="card-side front">
@@ -76,7 +81,7 @@ $result = mysqli_query($conn, $sql);
 		  <div class="card-side back">
 		    <p>Name: <?php echo $fullname ?></p>
 			<br>
-		    <div>Age: <?php echo $age ?></div>
+		    <div>DOB: <?php echo $day."/".$month ?></div>
 			<br>
 		    <div>Regno: <?php echo $regno ?></div>
 			<br>
