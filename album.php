@@ -26,25 +26,7 @@ $i = 0;
 $sql = "SELECT * FROM `user` WHERE `image` IS NOT NULL AND `is_active` = 1";
 $result = mysqli_query($conn, $sql);
 
-// if (mysqli_num_rows($result) > 0) {
-// 	// User record found, display the dashboard
-// 	$row = mysqli_fetch_assoc($result);
-// 	$fullname = $row["fullname"];
-// 	$age = $row["age"];
-// 	$image = $row["image"];
-// 	$regno = $row["regno"];
-// 	$phone = $row["phone"];
-// 	$nickname = $row["nickname"];
-// 	$department = $row["department"];
-// 	$address = $row["address"];
-// 	$status = $row["status"];
-// 	// echo $status;
-// } else {
-// 	// User record not found, show error message
-// 	echo "<p>There was an error retrieving your record. Please update your record.</p>";
-// }
 
-// mysqli_close($conn);
 ?>
 <!DOCTYPE html>
 <html>
