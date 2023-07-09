@@ -26,3 +26,9 @@ CREATE TABLE `admin` (
   password VARCHAR(255) NOT NULL,
   UNIQUE (username)
 );
+
+CREATE TABLE `message` (
+  id INT(11)NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  message VARCHAR(255) NOT NULL,
+  date_announce DATETIME NOT NULL
+);
