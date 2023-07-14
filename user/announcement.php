@@ -14,6 +14,9 @@ $email = $_SESSION["email"];
 $sql = "SELECT * FROM user WHERE email='$email'";
 $result = mysqli_query($conn, $sql);
 
+$announce_sql = "SELECT * FROM `message` WHERE `msg_status`='1'";
+$msg_status = mysqli_query($conn, $announce_sql);
+
 if (mysqli_num_rows($result) > 0) {
 	// User record found, display the dashboard
 	$row = mysqli_fetch_assoc($result);
@@ -88,22 +91,20 @@ mysqli_close($conn);
 							<h3 class="mb-4">ANNOUNCEMENT</h3>
 							
 							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" value="Phone: <?php echo $phone; ?>" disabled>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<input type="text" class="form-control" value="Reg No: <?php echo $regno; ?>" disabled>
-									</div>
-								</div>
+								<?php 
+									if(mysqli_num_rows($msg_status) > 0):
+										$row = mysqli_fetch_array($msg_status);
+										$message = $row["message"];
+								?>
 								<div class="col-md-12">
 									<div class="form-group">
-										<label>Address</label>
-										<textarea class="form-control" rows="4" disabled><?php echo $address; ?></textarea>
+										<label>Message</label>
+										<textarea class="form-control" rows="4" disabled><?php echo $message; ?></textarea>
 									</div>
 								</div>
+								<?php 
+									endif;
+								?>
 							</div>
 						</div>
 
