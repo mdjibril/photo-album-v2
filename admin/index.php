@@ -74,6 +74,13 @@ require '../connection.php';
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="announcement.php">
+                    <i class="fas fa-fw fa-info"></i>
+                    <span>Announcement</span>
+                </a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -183,7 +190,7 @@ require '../connection.php';
                     <!-- Content Row -->
                     <div class="row">
                         <!-- highlight all students -->
-                        <div class="col-xl-3 col-md-3 mb-3">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -208,7 +215,7 @@ require '../connection.php';
                         </div>
 
                         <!-- highlight male students -->
-                        <div class="col-xl-2 col-md-2 mb-2">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -233,7 +240,7 @@ require '../connection.php';
                         </div>
 
                         <!-- highlight female students -->
-                        <div class="col-xl-2 col-md-2 mb-2">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -267,7 +274,7 @@ require '../connection.php';
                         </div>
 
                         <!-- highlight active student -->
-                        <div class="col-xl-2 col-md-2 mb-2">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -292,7 +299,7 @@ require '../connection.php';
                         </div>
 
                         <!-- highlight deactivated students -->
-                        <div class="col-xl-3 col-md-3 mb-3">
+                        <div class="col-xl-4 col-md-4 mb-4">
                             <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">

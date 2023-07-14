@@ -71,6 +71,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="announcement.php">
+                    <i class="fas fa-fw fa-info"></i>
+                    <span>Announcement</span>
+                </a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
