@@ -92,8 +92,7 @@ mysqli_close($conn);
 							
 							<div class="row">
 								<?php 
-									if(mysqli_num_rows($msg_status) > 0):
-										$row = mysqli_fetch_array($msg_status);
+									while($row = mysqli_fetch_array($msg_status)):
 										$message = $row["message"];
 								?>
 								<div class="col-md-12">
@@ -103,7 +102,7 @@ mysqli_close($conn);
 									</div>
 								</div>
 								<?php 
-									endif;
+									endwhile;
 								?>
 							</div>
 						</div>
