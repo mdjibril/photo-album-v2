@@ -187,11 +187,14 @@
                         <form class="user" method="POST" action="script/announcementscript.php">
                            
                             <div class="form-group">
-                                <textarea name="" id="" cols="30" rows="10" class="form-control" >
+                                <textarea name="message" id="" cols="30" rows="5" class="form-control" >
                                 </textarea>
                             </div>
                             <div class="form-group">
-                                <select name="" id="" class="form-control">
+                                <input type="date" class="form-control" name="date">
+                            </div>
+                            <div class="form-group">
+                                <select name="status" id="" class="form-control">
                                     <option value="">Announcement - Status</option>
                                     <option value="0">0 - Hidden</option>
                                     <option value="1">1 - Visible</option>
