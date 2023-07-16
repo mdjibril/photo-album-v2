@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    require '../connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -179,13 +183,11 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <div class="p-5">
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">New Announcement</h1>
                         </div>
                         <form class="user" method="POST" action="script/announcementscript.php">
-                           
                             <div class="form-group">
                                 <textarea name="message" id="" cols="30" rows="5" class="form-control" >
                                 </textarea>
@@ -201,10 +203,67 @@
                                 </select>
                             </div>
                             <input class="btn btn-primary btn-user btn-block" type="submit" name="submit" value="Send">
-
                         </form>
                     </div>
 
+                    <div class="">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">All Messages</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>S/N</th>
+                                            <th>Message</th>
+                                            <th>Anouncement date</th>
+                                            <th>Status</th>
+                                            <th>Modify</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>S/N</th>
+                                            <th>Message</th>
+                                            <th>Anouncement date</th>
+                                            <th>Status</th>
+                                            <th>Modify</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php
+                                        
+                                        $query = "SELECT * FROM `message`";
+                                        $allStudent = mysqli_query($conn, $query);
+                                        $i=0;
+                                        while ($row=mysqli_fetch_array($allStudent)):
+                                            $i++;
+                                            $message = $row['message'];
+                                            $date = $row['date_announce'];
+                                            $status = $row['msg_status'];
+                                            
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i ?></td>
+                                            <td><?php echo $message ?></td>
+                                            <td><?php echo $date ?></td>
+                                            <td><?php echo $status ?></td>
+                                            <td>
+                                                <?php 
+                                                    echo "
+                                                    <a href='editmessage.php?'>Edit ||</a>
+                                                    <a href='script/deletemessage.php?'> Delete</a>
+                                                    ";
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <?php endwhile ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 
