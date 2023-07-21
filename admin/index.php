@@ -61,7 +61,7 @@ require '../connection.php';
             <li class="nav-item">
                 <a class="nav-link collapsed" href="addstudent.php">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Add Student</span>
+                    <span>Register Student</span>
                 </a>
 
             </li>
@@ -347,7 +347,7 @@ require '../connection.php';
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; <?php echo date("Y/m/d") ?> </span>
                     </div>
                 </div>
             </footer>
