@@ -11,13 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO `message` (message, date_announce, msg_status) VALUES ('$message', '$date', '$status')";
     if (mysqli_query($conn, $sql)) {
-        echo "<p>New message posted successful.</p>";
-        // $_SESSION['success'] = 'Student Registration Successful,';
-        // header('location: ../allstudent.php');
+        // echo "<p>New message posted successful.</p>";
+        $_SESSION['success'] = 'Message announce successfully,';
+        header('location: ../announcement.php');
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        // $_SESSION['error'] = 'Error Registering student: ' . $sql;
-        // header('location: ../addstudent.php');
+        // echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $_SESSION['error'] = 'Error announcing message';
+        header('location: ../announcement.php');
+
     }
 
     mysqli_close($conn);
