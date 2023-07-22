@@ -63,7 +63,7 @@ mysqli_close($conn);
 							<p class="text-center"><?php echo $email; ?></hp>
 						</div>
 						<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-							<a class="nav-link" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<a class="nav-link" id="account-tab" href="dashboard.php">
 								<i class="fa fa-home text-center mr-1"></i>
 								Account
 							</a>
@@ -89,20 +89,20 @@ mysqli_close($conn);
 					<div class="tab-content p-4" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
 							<h3 class="mb-4">ANNOUNCEMENT</h3>
-							
+
 							<div class="row">
-								<?php 
-									while($row = mysqli_fetch_array($msg_status)):
-										$message = $row["message"];
+								<?php
+								while ($row = mysqli_fetch_array($msg_status)) :
+									$message = $row["message"];
 								?>
-								<div class="col-md-12">
-									<div class="form-group">
-										<label>Message</label>
-										<textarea class="form-control" rows="4" disabled><?php echo $message; ?></textarea>
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Message</label>
+											<textarea class="form-control" rows="4" disabled><?php echo $message; ?></textarea>
+										</div>
 									</div>
-								</div>
-								<?php 
-									endwhile;
+								<?php
+								endwhile;
 								?>
 							</div>
 						</div>
@@ -118,17 +118,18 @@ mysqli_close($conn);
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
 <?php
-  unset($_SESSION['message1']);
-  unset($_SESSION['message2']);
-  unset($_SESSION['message3']);
-  unset($_SESSION['message4']);
-  unset($_SESSION['message5']);
-  unset($_SESSION['message6']);
-  unset($_SESSION['message7']);
-  unset($_SESSION['message8']);
-  unset($_SESSION['message9']);
-  unset($_SESSION['message10']);
-  unset($_SESSION['message11']);
+unset($_SESSION['message1']);
+unset($_SESSION['message2']);
+unset($_SESSION['message3']);
+unset($_SESSION['message4']);
+unset($_SESSION['message5']);
+unset($_SESSION['message6']);
+unset($_SESSION['message7']);
+unset($_SESSION['message8']);
+unset($_SESSION['message9']);
+unset($_SESSION['message10']);
+unset($_SESSION['message11']);
 ?>
