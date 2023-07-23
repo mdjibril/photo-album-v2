@@ -9,10 +9,12 @@
         $delete = mysqli_query($conn, $sql);
 
         if ($delete) {
-            $_SESSION['message'] = "Message deleted";
+            $_SESSION['success'] = "Message deleted";
             header('location: ../announcement.php');
         }else{
-            echo 'Error Deleting User';
+            // echo 'Error Deleting User';
+            $_SESSION['error'] = "Error Deleting User";
+            header('location: ../announcement.php');
         }
     }
 ?>
