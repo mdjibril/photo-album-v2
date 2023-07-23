@@ -186,6 +186,14 @@ require '../connection.php';
                     <div class="p-5">
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">New Announcement</h1>
+                            <?php
+                            if (isset($_SESSION['error'])) {
+                                echo "<p style='color:red'>" . $_SESSION['error'] . "</p>";
+                            }
+                            if (isset($_SESSION['success'])) {
+                                echo "<p style='color:#4CAF50'>" . $_SESSION['success'] . "</p>";
+                            }
+                            ?>
                         </div>
                         <form class="user" method="POST" action="script/announcementscript.php">
                             <div class="form-group">
@@ -338,3 +346,7 @@ require '../connection.php';
 </body>
 
 </html>
+<?php 
+    unset($_SESSION['error']);
+    unset($_SESSION['success']);
+?>
