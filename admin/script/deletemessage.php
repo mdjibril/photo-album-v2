@@ -13,7 +13,7 @@
             header('location: ../announcement.php');
         }else{
             // echo 'Error Deleting User';
-            $_SESSION['error'] = "Error Deleting User";
+            $_SESSION['error'] = "Error Deleting message";
             header('location: ../announcement.php');
         }
     }

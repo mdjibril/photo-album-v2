@@ -9,9 +9,10 @@
         $delete = mysqli_query($conn, $sql);
 
         if ($delete) {
+            $_SESSION['success'] = 'Student deleted successfully';
             header('location: ../allstudent.php');
         }else{
-            echo 'Error Deleting User';
+            $_SESSION['error'] = 'Error deleting student';
         }
     }
 ?>

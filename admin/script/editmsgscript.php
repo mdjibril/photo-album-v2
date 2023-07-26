@@ -14,8 +14,11 @@
 
     if ( mysqli_query($conn, $sql)) {
         // echo 'e choke';
+        $_SESSION['success'] = "Message Updated successfully scroll to see";
         header('location: ../announcement.php');
     }else {
-        'bad ';
+        // 'bad ';
+        $_SESSION['error'] = "Error updating message";
+        header('location: ../announcement.php');
     }
 ?>
